@@ -1,7 +1,6 @@
-import { NextRequest } from "next/server";
 import { connect, StringCodec, jwtAuthenticator } from "nats";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
     const { readable, writable } = new TransformStream();
     const writer = writable.getWriter();
     const encoder = new TextEncoder();
@@ -26,14 +25,12 @@ export async function GET(req: NextRequest) {
         });
 
         const sc = StringCodec();
-        const sub = nc.subscribe(process.env.NATS_SUBJECT || "livedata");
-
-        writer.write(encoder.encode("data: Connected to SSE\n\n"));
+        const sub = nc.subscribe(process.env.NATS_SUBJECT || "sensor-input1");
 
         (async () => {
             for await (const msg of sub) {
                 const data = sc.decode(msg.data);
-                writer.write(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+                writer.write(encoder.encode(`data: ${data}\n\n`));
             }
         })();
 
