@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.gauges {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  height: 100vh;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+
+  svg {
+    overflow: visible;
+  }
+}

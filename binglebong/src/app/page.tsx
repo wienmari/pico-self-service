@@ -30,7 +30,7 @@ export default function Home() {
     }, []);
 
     return (
-      <div>
+      <div className="gauges">
         <Thermometer value={messages[messages.length - 1]?.temperature || 0} />
         <Hydromometer value={messages[messages.length - 1]?.humidity || 0} />
       </div>
