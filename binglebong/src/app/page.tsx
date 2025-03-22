@@ -1,6 +1,7 @@
 
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Thermometer from "./components/Thermometer";
 import Hydromometer from "./components/Hydrometer";
 
@@ -30,9 +31,17 @@ export default function Home() {
     }, []);
 
     return (
-      <div className="gauges">
-        <Thermometer value={messages[messages.length - 1]?.temperature || 0} />
-        <Hydromometer value={messages[messages.length - 1]?.humidity || 0} />
+      <div className="main-page">
+        <Image
+           src="/BingleBong-logo.png"
+           alt="BingleBong logo"
+           width={200}
+           height={200}
+         />
+        <div className="gauges">
+          <Thermometer value={messages[messages.length - 1]?.temperature || 0} />
+          <Hydromometer value={messages[messages.length - 1]?.humidity || 0} />
+        </div>
       </div>
     );
 }

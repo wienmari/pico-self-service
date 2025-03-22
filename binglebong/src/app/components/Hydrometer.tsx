@@ -46,13 +46,13 @@ export default function Hydromometer({ value }: ThermometerProps) {
         labels={{
             valueLabel: {
                 formatTextValue: value => value + '%',
-                style: {fontSize: 40}
+                style: { fontSize: 40 }
             },
             tickLabels: {
                 type: 'outer',
                 defaultTickValueConfig: {
                     formatTextValue: (value: number) => value + '%',
-                    style: {fontSize: 15}
+                    style: { fontSize: 15 }
                 }
             }
         }}

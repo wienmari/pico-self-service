@@ -51,13 +51,13 @@ export default function Thermometer({ value }: ThermometerProps) {
         labels={{
             valueLabel: {
                 formatTextValue: value => value + 'ºC',
-                style: {fontSize: 40},
+                style: { fontSize: 40 }
             },
             tickLabels: {
                 type: 'outer',
                 defaultTickValueConfig: { 
                     formatTextValue: (value: number) => value + 'ºC',
-                    style: {fontSize: 15}
+                    style: { fontSize: 15 }
                 }
             }
         }}
